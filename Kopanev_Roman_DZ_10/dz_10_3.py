@@ -15,10 +15,10 @@
 # Или, количество ячеек клетки — 15, а количество ячеек в ряду равняется 5. Тогда метод make_order() вернёт строку: *****\n*****\n*****
 class Cell():
     def __init__(self, cell_number):
-        self.cell_number = cell_number
+        self.cell_number = int(cell_number)
 
     def __add__(self, other):
-        return self.cell_number + other.cell_number
+        return self.cell_number + int(other.cell_number)
 
     def __sub__(self, other):
         if self.cell_number - other.cell_number > 0:
@@ -33,12 +33,12 @@ class Cell():
         return self.cell_number // other.cell_number
 
     def make_order(self, row_sell):
-        row = self.cell_number // row_sell
-        return ((("*" * row_sell) + "\\n") * row) + "*" * (self.cell_number % row_sell)
+        row = self.cell_number // int(row_sell)
+        return ((("*" * int(row_sell)) + "\\n") * int(row)) + "*" * (self.cell_number % int(row_sell))
 
 
-cell_1 = Cell(12)
-print(cell_1.make_order(5))
+cell_1 = Cell('12')
+print(cell_1.make_order('5'))
 cell_1 = Cell(15)
 print(cell_1.make_order(5))
 cell_2 = Cell(8)
