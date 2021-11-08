@@ -9,7 +9,7 @@ def division():
     try:
         num1 = int(input('Введите делимое: '))
         num2 = int(input('Введите делитель: '))
-        if num2 == 0:
+        if not num2:
             raise MyZeroDivision('На ноль делить нельзя')
         else:
             result = num1 / num2
